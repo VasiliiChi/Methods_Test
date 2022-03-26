@@ -38,6 +38,18 @@ namespace Methods
                     break;
             }
             return color;
+
+            
+        }
+
+        static void ShowColors(string[] favcolors)
+        {
+            Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var item in favcolors)
+            {
+                Console.Write(item + ", ");
+            }
+
         }
         static void Main(string[] args)
         {
@@ -77,7 +89,7 @@ namespace Methods
                 ShowColor(anketa.name, anketa.age);
             } while (t < 3);
 
-           
+
 
             var favcolors = new string[3];
             for (int i = 0; i < favcolors.Length; i++)
@@ -89,6 +101,9 @@ namespace Methods
             {
                 Console.WriteLine(colors);
             }
+
+
+            
             Console.ReadKey();
         }
     }
