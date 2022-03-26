@@ -4,7 +4,7 @@ namespace Methods
 {
     class Program
     {
-        static void ShowColor()
+        static string ShowColor()
         {
             Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
             var color = Console.ReadLine();
@@ -37,6 +37,7 @@ namespace Methods
                     Console.WriteLine("Your color is yellow!");
                     break;
             }
+            return color;
         }
         static void Main(string[] args)
         {
@@ -67,6 +68,18 @@ namespace Methods
                 ShowColor();
             } while (t < 3);
 
+
+            
+            var favcolors = new string[3];
+            for (int i = 0; i < favcolors.Length; i++)
+            {
+                favcolors[i] = ShowColor();
+            }
+            Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var colors in favcolors)
+            {
+                Console.WriteLine(colors);
+            }
             Console.ReadKey();
         }
     }
