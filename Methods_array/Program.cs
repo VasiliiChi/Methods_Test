@@ -6,13 +6,13 @@ namespace Methods_array
     {
         static void Main(string[] args)
         {
-            int[] array = GetArrayFromConsole();
-            SortArray(array);
+            int[] array = GetArrayFromConsole(10);
+            ShowArray(array);
             Console.ReadKey();
         }
-        static int[] GetArrayFromConsole()
+        static int[] GetArrayFromConsole(int num = 5)
         {
-            var result = new int[5];
+            var result = new int[num];
 
             for (int i = 0; i < result.Length; i++)
             {
@@ -20,23 +20,11 @@ namespace Methods_array
                 result[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-           /* Console.Write("\nЭлементы в массиве: ");
-            for (int i = 0; i < result.Length; i++)
-            {
-                Console.Write(result[i] + " ");
-            }
-
-            
-            Console.Write("\nЭлементы в массиве после сортировки по возрастанию: ");
-            for (int i = 0; i < result.Length; i++)
-            {
-                Console.Write(result[i] + " ");
-            }*/
             return result;
         }
         static int[] SortArray(int[] result)
         {
-            
+
             int item = 0;
             for (int i = 0; i < result.Length; i++)
             {
@@ -53,6 +41,19 @@ namespace Methods_array
             }
             return result;
 
+        }
+
+        static void ShowArray(int[] array, bool sort = false)
+        {
+            var temp = array;
+            if (sort == true)
+            {
+                temp = SortArray(array);
+            }
+            foreach (var item in temp)
+            {
+                Console.Write(item + " ");
+            }
         }
     }
 
