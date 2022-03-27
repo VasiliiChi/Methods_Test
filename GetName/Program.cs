@@ -11,15 +11,21 @@ namespace GetName
             var someAge = 22;
             Console.WriteLine(someAge);
 
-            GetName(someName);
+            GetName(ref someName);
             Console.WriteLine(someName);
 
             GetAge(someAge);
             Console.WriteLine(someAge);
 
+            var arr = new int[] { 1, 2, 3 };
+            var data = 5;
+            BigDataOperation(arr, in data);
+
+            Console.WriteLine(arr[0]);
+
             Console.ReadKey();
         }
-        static void GetName(string name)
+        static void GetName(ref string name)
         {
             Console.WriteLine("Введите имя");
             name = Console.ReadLine();
@@ -29,6 +35,12 @@ namespace GetName
         {
             Console.WriteLine("Введите возраст");
             age = int.Parse(Console.ReadLine());
+        }
+
+        static void BigDataOperation(int[] arr, in int data)
+        {
+            //data = 4;  будет ошибка, так как in запрещает менять данные в методе
+            arr[0] = data;
         }
     }
 }
