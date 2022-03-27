@@ -42,7 +42,7 @@ namespace Methods
             
         }
 
-        static void ShowColors(params string[] favcolors)
+        static void ShowColors(string username, params string[] favcolors)
         {
             Console.WriteLine("Ваши любимые цвета: ");
             foreach (var item in favcolors)
@@ -104,7 +104,7 @@ namespace Methods
                 Console.WriteLine(colors);
             }
 
-            ShowColors(favcolors);
+            ShowColors(anketa.name, favcolors);
             
             Console.ReadKey();
         }
